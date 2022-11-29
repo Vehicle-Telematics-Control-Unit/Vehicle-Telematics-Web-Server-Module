@@ -1,10 +1,5 @@
 # Telematics control unit - the key to smart cars
 
-## System layout
-<p align="center">
-<img src="system layout.png" />
-</p>
-
 ## Back end server
 <p align="center">
 <img src="back-end-server.png"/>
