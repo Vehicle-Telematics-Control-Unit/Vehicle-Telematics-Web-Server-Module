@@ -2,7 +2,7 @@
 
 ## Back end server
 <p align="center">
-<img src="back-end-server.png"/>
+<img src="images/back-end-server.png"/>
 </p>
 
 ### Definition and purpose
@@ -38,7 +38,7 @@ including the recommended actions like maintenance.
 
 <br><br>
 <p align="center">
-<img src="DevOps.png"/>
+<img src="images/DevOps.png"/>
 </p>
 
 ### Software architecture
@@ -47,46 +47,46 @@ including the recommended actions like maintenance.
 
 <br><br>
 <p align="center">
-<img src="MicroServiceArchiticture.jpg">
+<img src="images/MicroServiceArchiticture.jpg">
 </p>
 
 ### Required technologies
 
 - For the database micro-service we will use <a target="_blank" href="https://www.postgresql.org/">PostGreSQL</a>
     <p align="center">
-        <img src="postgreSQL.png">
+        <img src="images/postgreSQL.png">
     </p>
 
 - We will use ASP-NET core to create the web api based micro-services
     <p align="center">
-        <img src="asp-net-core.png">
+        <img src="images/asp-net-core.png">
     </p>
 
 - We will use <a target="_blank" href="https://angular.io">angular</a> frontend to create the web-UI
 <p align="center">
-    <img src="angular.png">
+    <img src="images/angular.png">
 </p>
 
 - We will use <a target="_blank" href="https://flutter.dev/?gclid=Cj0KCQiA-JacBhC0ARIsAIxybyNtwd-LzzoVvK2jBUaFvAX05aUbwePUQouItgBRIx5Kun0SuLdoFVIaAkW7EALw_wcB&gclsrc=aw.ds">flutter</a> to create the mobile companion app UI
 <p align="center">
-    <img src="flutter.png">
+    <img src="images/flutter.png">
 </p>
 
 - <a target="_blank" href="https://www.jenkins.io/">jenkins</a> for automation and testing pipelines
     <p align="center">
-    <img src="jenkins.png">
+    <img src="images/jenkins.png">
     </p>
 
 - <a target="_blank" href="https://www.docker.com/">Docker</a> for creating the micro-service containers combined with <a target="_blank" href="https://kubernetes.io/">Kubernetes</a> for service orchestration
     <p align="center">
-        <img src="docker.png"> 
-        <img src="kubernetes.png"> 
+        <img src="images/docker.png"> 
+        <img src="images/kubernetes.png"> 
     </p>
 
 - Will run use <a target="_blank" href="https://www.linux.org/">Linux</a> based server and <a target="_blank" href="https://www.nginx.com/">NGINX</a> as a reverse proxy for request routing
     <p align="center">
-        <img src="linux.jpeg"> 
-        <img src="nginx.png"> 
+        <img src="images/linux.jpeg"> 
+        <img src="images/nginx.png"> 
     </p>
 
 
