@@ -90,4 +90,14 @@ including the recommended actions like maintenance.
     </p>
 
 
+### Implementation
+
+#### Data base layer
+
+- ERD diagram
+    
+    <p align="center">
+        <img src="Documentation/ERD diagram.png"> 
+    </p>
+
 
