@@ -10,14 +10,16 @@
 name: Move assigned card
 on:
   issues:
-    types:
-      - assigned
+    types: [opened]
+env:
+  GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
 jobs:
-  move-assigned-card:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
+  assign_one_project:
+      runs-on: ubuntu-latest
+      name: Assign to One Project
+      steps:
+      - name: Assign NEW issues and NEW pull requests to project 2
+        uses: srggrs/assign-one-project-github-action@1.2.1
+        if: github.event.action == 'opened'
         with:
-          project: Vehicle telematics - the key to smart cars
-          column: New
-          repo-token: ${{ secrets.Action_Token }}
+          project: 'https://github.com/srggrs/assign-one-project-github-action/projects/3'
