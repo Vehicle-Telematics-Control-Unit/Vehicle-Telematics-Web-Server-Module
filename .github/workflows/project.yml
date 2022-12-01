@@ -7,7 +7,7 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Move assigned card
+name: Auto add opened issues to project
 on:
   issues:
     types: [opened]
@@ -22,4 +22,4 @@ jobs:
         uses: srggrs/assign-one-project-github-action@1.2.1
         if: github.event.action == 'opened'
         with:
-          project: 'https://github.com/srggrs/assign-one-project-github-action/projects/3'
+          project: 'https://github.com/users/mhwahdan/projects/3'
