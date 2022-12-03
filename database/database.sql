@@ -6,18 +6,28 @@ GO
 
 USE TCU
 
-CREATE TABLE Locations
+CREATE TABLE VehiclesLocations
 (
-  Latitude INT NOT NULL,
-  Longitude INT NOT NULL,
-  UpdateTimeStamp DATE NOT NULL,
-  TrackingCode BIGINT NOT NULL,
-  PRIMARY KEY (TrackingCode)
+  Latitude FLOAT NOT NULL,
+  Longitude FLOAT NOT NULL,
+  UpdateTimeStamp DATETIME NOT NULL DEFAULT now(),
+  VehicleId BIGINT NOT NULL ,
+  FOREIGN KEY (VehicleId) REFERENCES Vehicle(VehicleId),
+  PRIMARY KEY (VehicleId)
+);
+CREATE TABLE DevicesLocations
+(
+  Latitude FLOAT NOT NULL,
+  Longitude FLOAT NOT NULL,
+  UpdateTimeStamp DATETIME NOT NULL DEFAULT now() ,
+  DeviceId BIGINT NOT NULL ,
+  FOREIGN KEY (DeviceId) REFERENCES Devices(DeviceId),
+  PRIMARY KEY (DeviceId)
 );
 
 CREATE TABLE Users
 (
-  Name VARCHAR(150) NOT NULL,
+  Name VARCHAR(150) NOT NULL check (Name NOT LIKE '%[^A-Z ]%'),
   Adress VARCHAR(500) NULL,
   RegisterDate DATETIME NOT NULL,
   UserId BIGINT NOT NULL IDENTITY(1,1),
@@ -26,27 +36,29 @@ CREATE TABLE Users
 
 CREATE TABLE Devices
 (
-  DeviceId BIGINT NOT NULL IDENTITY(1,1),
-  MAC_Adress CHAR(12) NOT NULL,
+  DeviceId SERIAL PRIMARY KEY,
+  MAC_Adress CHAR(18) NOT NULL,
   Type INT NOT NULL,
   UserId BIGINT NOT NULL,
   PRIMARY KEY (DeviceId),
-  FOREIGN KEY (DeviceId) REFERENCES Locations(TrackingCode),
   FOREIGN KEY (UserId) REFERENCES Users(UserId)
 );
 
 CREATE TABLE LockRequests
 (
-  RequestId BIGINT NOT NULL,
+  UserId BIGINT NOT NULL,
+  VehicleId BIGINT NOT NULL,
   Status INT NOT NULL,
-  PRIMARY KEY (RequestId)
+  PRIMARY KEY (UserId, VehicleId),
+  FOREIGN KEY (UserId) REFERENCES User(UserId),
+  FOREIGN KEY (VehicleId) REFERENCES Vehicle(VehicleId)
 );
 
 CREATE TABLE Models
 (
-  ModelId BIGINT NOT NULL,
+  ModelId SERIAL PRIMARY KEY,
   Name VARCHAR(100) NOT NULL,
-  ProductionDate DATETIME NOT NULL,
+  ProductionDate DATE NOT NULL,
   Mancufacturor VARCHAR(100) NOT NULL,
   PRIMARY KEY (ModelId)
 );
@@ -54,27 +66,19 @@ CREATE TABLE Models
 
 CREATE TABLE Parts
 (
-  PartId BIGINT NOT NULL,
+  PartId SERIAL PRIMARY KEY,
   Value VARCHAR(100) NOT NULL,
-  Price INT NULL,
+  Price FLOAT NULL CHECK (Price>=0),
   ModelId BIGINT NOT NULL,
   PRIMARY KEY (PartId),
   FOREIGN KEY (ModelId) REFERENCES Models(ModelId)
 );
 
-CREATE TABLE User_LockRequests
-(
-  TimeStamp DATETIME NOT NULL,
-  UserId BIGINT NOT NULL,
-  RequestId BIGINT NOT NULL,
-  PRIMARY KEY (UserId, RequestId),
-  FOREIGN KEY (UserId) REFERENCES Users(UserId),
-  FOREIGN KEY (RequestId) REFERENCES LockRequests(RequestId)
-);
+
 
 CREATE TABLE Descriptions
 (
-  DescriptionId BIGINT NOT NULL,
+  DescriptionId SERIAL PRIMARY KEY,
   Value VARCHAR(250) NOT NULL,
   PartId BIGINT NOT NULL,
   PRIMARY KEY (DescriptionId),
@@ -84,10 +88,9 @@ CREATE TABLE Descriptions
 CREATE TABLE Vehicles
 (
   Plate_number VARCHAR(50) NOT NULL,
-  VehicleId BIGINT NOT NULL,
+  VehicleId SERIAL PRIMARY KEY,
   ModelId BIGINT NOT NULL,
   PRIMARY KEY (VehicleId),
-  FOREIGN KEY (VehicleId) REFERENCES Locations(TrackingCode),
   FOREIGN KEY (ModelId) REFERENCES Models(ModelId),
   UNIQUE (Plate_number)
 );
@@ -95,9 +98,9 @@ CREATE TABLE Vehicles
 
 CREATE TABLE Alerts
 (
-  Severity int NOT NULL,
+  Severity int NOT NULL CHECK (Severity>=0),
   Status int NOT NULL,
-  AlertId BIGINT NOT NULL,
+  AlertId SERIAL PRIMARY KEY,
   VehicleId BIGINT NOT NULL,
   DescriptionId BIGINT NOT NULL,
   PRIMARY KEY (AlertId),
@@ -107,7 +110,7 @@ CREATE TABLE Alerts
 
 CREATE TABLE Users_Vehicles
 (
-  Access_right INT NOT NULL,
+  Access_right INT NOT NULL CHECK (Access_right>=0),
   UserId BIGINT NOT NULL,
   VehicleId BIGINT NOT NULL,
   PRIMARY KEY (UserId, VehicleId),
@@ -115,12 +118,3 @@ CREATE TABLE Users_Vehicles
   FOREIGN KEY (VehicleId) REFERENCES Users(UserId)
 );
 
-CREATE TABLE Vehicles_LockRequest
-(
-  timestamp DATETIME NOT NULL,
-  VehicleId BIGINT NOT NULL,
-  RequestId BIGINT NOT NULL,
-  PRIMARY KEY (VehicleId, RequestId),
-  FOREIGN KEY (VehicleId) REFERENCES Vehicles(VehicleId),
-  FOREIGN KEY (RequestId) REFERENCES LockRequests(RequestId)
-);
