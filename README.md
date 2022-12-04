@@ -97,7 +97,7 @@ including the recommended actions like maintenance.
 - ERD diagram
     
     <p align="center">
-        <img src="Documentation/ERD diagram.png"> 
+        <img src="Documentation/ERD.png"> 
     </p>
 
 
