@@ -13,27 +13,23 @@ CREATE TABLE Models
 
 CREATE TABLE Vehicles
 (
-  Plate_number VARCHAR(50) NOT NULL,
   VehicleId SERIAL,
   ModelId BIGINT NOT NULL,
   PRIMARY KEY (VehicleId),
+  RXSWIN VARCHAR(150) NOT NULL,
+  LastUpdate timestamp NOT NULL,
   FOREIGN KEY (ModelId) REFERENCES Models(ModelId),
-  UNIQUE (Plate_number)
 );
 
-CREATE TABLE VehiclesLocations
+CREATE TABLE SUMSLogs
 (
-  Latitude FLOAT NOT NULL,
-  Longitude FLOAT NOT NULL,
-  UptimestampStamp timestamp NOT NULL DEFAULT now(),
-  VehicleId BIGINT NOT NULL ,
-  FOREIGN KEY (VehicleId) REFERENCES Vehicles(VehicleId),
-  PRIMARY KEY (VehicleId)
+  VehicleId NOT NULL,
+  UpdateTimeStamp timestamp NOT NULL,
+  RXSWIN_OLD VARCHAR(150) NOT NULL,
+  RXSWIN_NEW VARCHAR(150) NOT NULL,
+  PRIMARY KEY(VehicleId, UpdateTimeStamp),
+  FOREIGN KEY (VehicleId) REFERENCES Vehicles(VehicleId)
 );
-
-
-
-
 
 CREATE TABLE Users
 (
@@ -47,23 +43,13 @@ CREATE TABLE Users
 CREATE TABLE Devices
 (
   DeviceId SERIAL,
-  MAC_Adress CHAR(18) NOT NULL,
+  MAC_Address CHAR(18) NOT NULL,
   Type INT NOT NULL,
   UserId BIGINT NOT NULL,
   PRIMARY KEY (DeviceId),
   FOREIGN KEY (UserId) REFERENCES Users(UserId)
 );
 
-
-CREATE TABLE DevicesLocations
-(
-  Latitude FLOAT NOT NULL,
-  Longitude FLOAT NOT NULL,
-  UptimestampStamp timestamp NOT NULL DEFAULT now() ,
-  DeviceId BIGINT NOT NULL ,
-  FOREIGN KEY (DeviceId) REFERENCES Devices(DeviceId),
-  PRIMARY KEY (DeviceId)
-);
 
 CREATE TABLE LockRequests
 (
@@ -75,9 +61,6 @@ CREATE TABLE LockRequests
   FOREIGN KEY (VehicleId) REFERENCES Vehicles(VehicleId)
 );
 
-
-
-
 CREATE TABLE Parts
 (
   PartId SERIAL,
@@ -88,8 +71,6 @@ CREATE TABLE Parts
   FOREIGN KEY (ModelId) REFERENCES Models(ModelId)
 );
 
-
-
 CREATE TABLE Descriptions
 (
   DescriptionId SERIAL,
@@ -98,9 +79,6 @@ CREATE TABLE Descriptions
   PRIMARY KEY (DescriptionId),
   FOREIGN KEY (PartId) REFERENCES Parts(PartId)
 );
-
-
-
 
 CREATE TABLE Alerts
 (
@@ -123,4 +101,3 @@ CREATE TABLE Users_Vehicles
   FOREIGN KEY (UserId) REFERENCES Vehicles(VehicleId),
   FOREIGN KEY (VehicleId) REFERENCES Users(UserId)
 );
-
