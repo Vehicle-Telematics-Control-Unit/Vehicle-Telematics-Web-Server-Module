@@ -23,7 +23,7 @@
         - E-mail
         - SMS
     - After account activation the User is now connected to his vehicle and can access it's features.
-    - The device is set to allow sharing with other device 
+    - The device is set to allow sharing with other device. 
     - If he wants to access his vehicle with multiple devices he must
         - Open his application.
         - Click share vehicle access.
@@ -42,23 +42,23 @@
                     - token (Hashed)
                 - The reply with a randomly generated token that will be used to authenticate the new Device connection.
             - Else
-                - Return error 403 (Forbidden)
+                - Return error 403 (Forbidden).
         - A QR-Code will be displayed containing the token of the connection request. 
         - When the new device scans the QR-Code it will send the <b>token + it's information</b> to the server in a POST request to connect it's self to the vehicle.
-        - The server will check that token a find if a device connection request has the same token
+        - The server will check that token a find if a device connection request has the same token.
             - if a request is found
                 - if the difference between the request time and the creation time exceeds the timeout period
-                    - Change the state of the request to expired
-                    - Return error 400 (Bad request)
+                    - Change the state of the request to expired.
+                    - Return error 400 (Bad request).
                 - if the request state in pending state
-                    - Create a new device record with the User's account
-                    - deny that device to share access with other devices
-                    - Connect the device to vehicle
-                    - Return code 200 (Successful request)
+                    - Create a new device record with the User's account.
+                    - deny that device to share access with other devices.
+                    - Connect the device to vehicle.
+                    - Return code 200 (Successful request).
                 - else
-                    - Return error 400 (Bad request)
+                    - Return error 400 (Bad request).
             - else
-                - Return error 400 (Bad request)
+                - Return error 400 (Bad request).
 
 
 - Request a live location of his vehicle.
