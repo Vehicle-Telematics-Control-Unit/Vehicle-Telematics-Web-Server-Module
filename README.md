@@ -7,9 +7,9 @@
 
 ### Definition and purpose
 
-#### The back end server is a cloud platform that is integrated with the TCU software to extend it's functionalities in order to Allow the 
+#### The back end server is a cloud platform that is integrated with the TCU software to extend it's functionalities in order to 
 
-### user to
+##### Allow the user to
 
 - Connect his smart device to his vehicle's TCU from multiple devices.
     - Constraints
@@ -51,7 +51,6 @@
                 - Return error 400 (Bad request)
         - else
             - Return error 400 (Bad request)
-
 
 - Request a live location of his vehicle.
     - will use google geoLocation API.
@@ -106,7 +105,7 @@
                 - New RXWIN
             - Overwrite the Old RXWIN in the vehicle record and update the software last update time stamp
 
-### Vehicle manufacturer to
+##### Allow the Vehicle manufacturer to
 - Connect the vehicle owner's primary device to vehicle on purchase.
     - the manufacturer receives the owner information
     - the manufacturer sends a POST request to the server containing the vehicle ID and the User information
