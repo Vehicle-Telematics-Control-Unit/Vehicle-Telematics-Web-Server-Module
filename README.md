@@ -18,48 +18,39 @@
         - Each User has multiple devices where 1 device only can share access to other devices.
         - All the requests a responses data are in Json format
     - When the User purchase his new vehicle, An account is created and registered to the purchased vehicle as it's owner.
-    - When the User Opens the application, he must login using the credentials given by the manufacturer.
     - After the initial login, the user will be asked to activate his account using the verification method provided on the account creation.
         - E-mail
         - SMS
     - After account activation the User is now connected to his vehicle and can access it's features.
-    - The device is set to allow sharing with other device. 
-    - If he wants to access his vehicle with multiple devices he must
-        - Open his application.
-        - Click share vehicle access.
-        - Re-Enter his credentials
-            - if wrong credentials
-                - return to home page
-        - Select the vehicle he wants to share access.
-        - A request is sent to the server containing the <b>vehicle ID + device ID</b> requesting to share it's access.
-        - The server will
-            - If the device can share access
-                - create a new device connection request record that contains :
-                    - Device Id
-                    - User Id
-                    - creationTime
-                    - State
-                    - token (Hashed)
-                - The reply with a randomly generated token that will be used to authenticate the new Device connection.
-            - Else
-                - Return error 403 (Forbidden).
-        - A QR-Code will be displayed containing the token of the connection request. 
-        - When the new device scans the QR-Code it will send the <b>token + it's information</b> to the server in a POST request to connect it's self to the vehicle.
-        - The server will check that token a find if a device connection request has the same token.
-            - if a request is found
-                - if the difference between the request time and the creation time exceeds the timeout period
-                    - Change the state of the request to expired.
-                    - Return error 400 (Bad request).
-                - if the request state in pending state
-                    - Create a new device record with the User's account.
-                    - deny that device to share access with other devices.
-                    - Connect the device to vehicle.
-                    - Return code 200 (Successful request).
-                - else
-                    - Return error 400 (Bad request).
+    - The device is giving permission to allow sharing vehicle access with other devices and will be called the primary device from here on out. 
+- Share vehicle access with other devices using the primary device
+    - A request is sent to the server containing the <b>vehicle ID + device ID</b> requesting to share it's access.
+    - The server will check if the device is the primary device
+        - If the device can share access
+            - create a new device connection request record that contains :
+                - Device Id
+                - User Id
+                - creationTime
+                - State
+                - token (Hashed)
+            - The reply with a randomly generated token that will be used to authenticate the new Device connection.
+        - Else
+            - Return error 403 (Forbidden)
+    - The new device will send the <b>token + it's information</b> to the server in a POST request to connect it's self to the vehicle.
+    - The server will check that token a find if a device connection request has the same token
+        - if a request is found
+            - if the difference between the request time and the creation time exceeds the timeout period
+                - Change the state of the request to expired
+                - Return error 400 (Bad request)
+            - if the request state in pending state
+                - Create a new device record with the User's account
+                - deny that device to share access with other devices
+                - Connect the device to vehicle
+                - Return code 200 (Successful request)
             - else
-                - Return error 400 (Bad request).
-
+                - Return error 400 (Bad request)
+        - else
+            - Return error 400 (Bad request)
 
 - Request a live location of his vehicle.
     - will use google geoLocation API.
