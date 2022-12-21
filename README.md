@@ -105,13 +105,8 @@
                 - New RXWIN
             - Overwrite the Old RXWIN in the vehicle record and update the software last update time stamp
 
-<<<<<<< HEAD
-### Vehicle manufacturer to
-- Create the vehicle owner's account and connect it to the vehicle on purchase.
-=======
 ##### Allow the Vehicle manufacturer to
 - Connect the vehicle owner's primary device to vehicle on purchase.
->>>>>>> 5f1c30b7f77f8fbb6a5ca9c6e470046246d8e13c
     - the manufacturer receives the owner information
     - the manufacturer sends a POST request to the server containing the vehicle ID and the User information
     - The server will create a new user record and register this user as the owner to vehicle requested.
