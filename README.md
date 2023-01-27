@@ -119,32 +119,17 @@
         - each 24 hours the automation server will repeat the previous step
 ### Required technologies
 
-- For the database micro-service we will use <a target="_blank" href="https://www.postgresql.org/">PostGreSQL</a>
-    <p align="center">
-        <img src="images/postgreSQL.png">
-    </p>
 
 - We will use ASP-NET core to create the web api based micro-services
     <p align="center">
         <img src="images/asp-net-core.png">
     </p>
-
-- We will use <a target="_blank" href="https://angular.io">angular</a> frontend to create the manufacturer user interface 
-<p align="center">
-    <img src="images/angular.png">
-</p>
-
+    
 - <a target="_blank" href="https://www.jenkins.io/">jenkins</a> for automation and testing pipelines
     <p align="center">
     <img src="images/jenkins.png">
     </p>
-
-- <a target="_blank" href="https://www.docker.com/">Docker</a> for creating the micro-service containers combined with <a target="_blank" href="https://kubernetes.io/">Kubernetes</a> for service orchestration
-    <p align="center">
-        <img src="images/docker.png"> 
-        <img src="images/kubernetes.png"> 
-    </p>
-
+    
 - Will run use <a target="_blank" href="https://www.linux.org/">Linux</a> based server and <a target="_blank" href="https://www.nginx.com/">NGINX</a> as a reverse proxy for request routing
     <p align="center">
         <img src="images/linux.jpeg"> 
