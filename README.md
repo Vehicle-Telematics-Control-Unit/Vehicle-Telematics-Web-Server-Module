@@ -117,26 +117,6 @@
         - the automation server will iterate through all the vehicles and send a request to devices connected to that vehicle telling them to update their vehicles software.
         - the server will notify the automation server that an updated version of the software has been released
         - each 24 hours the automation server will repeat the previous step
-
-### system block diagram
-### Development model
-
-#### For this project we will use the <a target="_blank" href="https://aws.amazon.com/devops/what-is-devops/">DevOps model </a>
-
-<br><br>
-<p align="center">
-<img src="images/DevOps.png"/>
-</p>
-
-### Software architecture
-
-#### <a target="_blank" href="https://microservices.io/">Micro-service based architecture</a>
-
-<br><br>
-<p align="center">
-<img src="images/MicroServiceArchiticture.jpg">
-</p>
-
 ### Required technologies
 
 - For the database micro-service we will use <a target="_blank" href="https://www.postgresql.org/">PostGreSQL</a>
