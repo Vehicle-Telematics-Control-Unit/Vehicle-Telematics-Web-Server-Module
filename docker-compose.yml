@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  Vehicle-Plus-Network:
+    ipam:
+      config:
+        - subnet: 163.20.0.0/16
+
+services:
+  database-service:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes: 
+      - /home/postgres/database/db:/var/lib/postgresql/data
+      - ./database/database.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    networks:
+      Vehicle-Plus-Network:
+        ipv4_address: 163.20.0.10
+    ports:
+      - 5435:5432
+  
+  auth-server-service:
+    image: registry.digitalocean.com/vehicle-plus/auth-server:latest
+    restart: always
+    command: bash -c "dotnet AuthenticationServer.dll"
+    volumes:
+      - ./AuthServer/certificate.crt:/certificates/certificate.crt:ro
+      - ./AuthServer/private_key.pem:/certificates/private_key.pem:ro
+      - ./AuthServer/public_key.pem:/certificates/public_key.pem:ro
+      - ./AuthServer/appsettings.json:/app/appsettings.json:ro
+    ports:
+      - 5440:80
+    networks:
+      Vehicle-Plus-Network:
+        ipv4_address: 163.20.0.15
+
+  
