@@ -46,9 +46,9 @@ services:
       - 8084:8084
       - 8883:8883
       - 18083:18083
-  networks:
-    Vehicle-Plus-Network:
-        ipv4_address: 163.20.0.20
+    networks:
+      Vehicle-Plus-Network:
+          ipv4_address: 163.20.0.20
 
 
   
