@@ -27,10 +27,10 @@ services:
     restart: always
     command: bash -c "dotnet AuthenticationServer.dll"
     volumes:
-      - ./AuthServer/certificate.crt:/certificates/certificate.crt:ro
-      - ./AuthServer/private_key.pem:/certificates/private_key.pem:ro
-      - ./AuthServer/public_key.pem:/certificates/public_key.pem:ro
-      - ./AuthServer/appsettings.json:/app/appsettings.json:ro
+      - ./AuthServer/certificate.crt:/certificates/certificate.crt
+      - ./AuthServer/private_key.pem:/certificates/private_key.pem
+      - ./AuthServer/public_key.pem:/certificates/public_key.pem
+      - ./AuthServer/appsettings.json:/app/appsettings.json
     ports:
       - 127.0.0.1:5440:80
     networks:
