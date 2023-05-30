@@ -16,11 +16,11 @@ services:
     volumes: 
       - /home/postgres/database/:/var/lib/postgresql/data
       - ./database/database.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    ports:
+      - 5435:5432
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.10
-    ports:
-      - 5435:5432
   
   auth-server-service:
     image: registry.digitalocean.com/vehicle-plus/auth-server:latest
@@ -32,9 +32,23 @@ services:
       - ./AuthServer/public_key.pem:/certificates/public_key.pem:ro
       - ./AuthServer/appsettings.json:/app/appsettings.json:ro
     ports:
-      - 5440:80
+      - 127.0.0.1:5440:80
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.15
+
+  mqtt-broker:
+    image: emqx/emqx:5.0.26
+    restart: always
+    ports:
+      - 127.0.0.1:1883:1883 
+      - 8083:8083
+      - 8084:8084
+      - 8883:8883
+      - 18083:18083
+  networks:
+    Vehicle-Plus-Network:
+        ipv4_address: 163.20.0.20
+
 
   
