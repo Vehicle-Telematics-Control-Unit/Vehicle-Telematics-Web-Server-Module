@@ -30,7 +30,7 @@ services:
       - ./AuthServer/certificate.crt:/certificates/certificate.crt
       - ./AuthServer/private_key.pem:/certificates/private_key.pem
       - ./AuthServer/public_key.pem:/certificates/public_key.pem
-      - appsettings.json:/app/appsettings.json
+      - ./appsettings.json:/app/appsettings.json
     ports:
       - 127.0.0.1:5440:80
     networks:
@@ -42,7 +42,7 @@ services:
     command: bash -c "dotnet Alert-Server.dll"
     volumes:
       - ./fcm/vehicleplus-notifications.json:/fcm/vehicleplus-notifications.json
-      - appsettings.json:/app/appsettings.json
+      - ./appsettings.json:/app/appsettings.json
     ports:
       - 127.0.0.1:540:80
     networks:
