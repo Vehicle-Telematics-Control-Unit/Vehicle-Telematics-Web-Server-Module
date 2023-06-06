@@ -44,7 +44,7 @@ services:
       - ./fcm/vehicleplus-notifications.json:/fcm/vehicleplus-notifications.json
       - ./appsettings.json:/app/appsettings.json
     ports:
-      - 127.0.0.1:540:80
+      - 127.0.0.1:5460:80
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.25
