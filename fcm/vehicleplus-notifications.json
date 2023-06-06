@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "vehicleplus-notifications",
+  "private_key_id": "2e54d6d22b8ba4b4b5194ccc76a999667bd11735",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCvEWRiTDTPRzsG\n8kL2vNhH8Axv/jxq/D2hPxN0BpaIFEC0IuPNTs03C4qPsA6Vpe+zSwzXR7DbEo/o\n5zMKr7N23NboXzeY1S95RxXCBghSoDlUKgj0F7DArNmEd7SsHa7P+Ah4SY8UBSjO\nES/PDhnyQ10U7Mgr5RhaQuqYDVxTop1vs403+vbzJuhiDYNGoCWQnYJXgRSWyUxc\n2lLBBuWoFQwqR2/WSylR3NOh84T7JRl8pJEhY94G+wJZNcYHgfjEml80PFfRZ9SR\n1rjf826sdXaSD2seEurMkXGfFIMDr/thDC2V4J39DtD75mx+SN++g46Yb++XmHCW\nEsA2Tt/3AgMBAAECggEAC8+KEUGf5ZciIK1XjC9pe6zyiwCJ9e80EXy8G5j6eCB1\nFeRSHeM9Tbpyh0by48waAWN7cKZcKQf/DeMvI9qjGBePS89Erd89wJpTUKsCO7um\nMnjA8Jh6j2rVSQmf0ffsrpq0XwGskQ/XwooRSrTQDSlqIIzom2F/qU6qQf1lVRmV\nxZd7pRsBzr63iWFpj2Td9dQ1f05dWlBCIg956zsw8kVgUs5CAjYWejjJ9ZaV9bU3\nCPNaGnqefvQRscTO/UlmZrTcZSaLdxI7Kfd2xGoa3KJE4ImzLtS8q1uVpQkrs7oS\nMlgGpEkvqhf3emn1xoxOhf8aArm31OdiINYVGKwi3QKBgQDXE45ub2tD5tevDS0R\nXFQ5OQzFiNBNgap37aMkSrxh4F8QAkDDxenJMsK7nHt0ZscQ/m9u9JR30I2ReMxR\nqljKcUIriMUc8E274Gob2mmfFw2Y+mf/BCkPoShGquKTIKjKGN0USY4Qy6CDfP+H\nY3NfeRoCQoo4yVVNShrlGC/R8wKBgQDQYQKtH4xmY7BHPiZFyhyycC4RcN7NwF9A\nbP0CSt4NXOG+hdl8uDAR/+LiGzdmM7IseyyfgtRdF9olLCZtf0VUndseLO9zOxBy\nTcHZtntyqOPY2PHvoRqiJOxzCqm5YAMEAztg9hOqeHWRue1U5fldz5biUvXISfAy\ngf+C0Q727QKBgQCWYGgPsvtuqHJZRH8kSkfhEpBpdLUf2+9SluagM1jvni8ZRFoA\nB9rkAAfDoS94PXwl16AWFg/QjhLNiYZh+xbFxNadFa2sBCB1ofzOqLF8uGObeElK\nNqB2+xjsAAMXF5isZSH+U0dvWtBJ3xXSlahPMp8KwXdfKPXpakzPrU+SHQKBgQC5\nf7KnNS+CMnpJYY0mkX6sZmrMQeNF3Fuu+ZbdxJIZ6TZYqcTrXvgD/fwWdk4B4EFb\nkacutIOh/8rFTqFC1op8gi3+ldfvh4PjjU7lJaqNbsWuU6pEPPF9qEsJOlPO3yaw\nGsRwU388QRHAUXhyHGu51EOoZFvCGfgGrm0sIjklHQKBgQCr23zz4HcfRwwEwxvK\n50aA1FC4gALS0GOQ/w1JIOyQOkxq5mCyOjVKwQqztMkxynnqybDwo37CUGOrSEsW\nig3AKwx+xRxqgxqrCayEBs7X8vXGrqCOs7zYFhRTdg9EiwuHIpQLPFdBg1wjuCo6\nRbFp9YcsGauBYITllVTOEOnezw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ayplo@vehicleplus-notifications.iam.gserviceaccount.com",
+  "client_id": "101874768282790624368",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ayplo%40vehicleplus-notifications.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
