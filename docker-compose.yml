@@ -39,7 +39,7 @@ services:
   alerts-service:
     image: registry.digitalocean.com/vehicle-plus/alerts:latest
     restart: always
-    command: bash -c "dotnet Alert-Server.dll"
+    command: bash -c "sleep 10 && dotnet Alert-Server.dll"
     volumes:
       - ./fcm/vehicleplus-notifications.json:/fcm/vehicleplus-notifications.json
       - ./appsettings.json:/app/appsettings.json
