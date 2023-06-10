@@ -45,6 +45,8 @@ services:
       - ./appsettings.json:/app/appsettings.json
     ports:
       - 127.0.0.1:5460:80
+    depends_on:
+      - mqtt-broker
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.25
