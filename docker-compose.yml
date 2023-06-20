@@ -21,10 +21,10 @@ services:
     ports:
       - 127.0.0.1:5440:80
     networks:
-      - Vehicle-Plus-Network:
-          ipv4_address: 163.20.0.15
-      - Database-Network:
-          ipv4_address: 163.50.0.15
+      Vehicle-Plus-Network:
+        ipv4_address: 163.20.0.15
+      Database-Network:
+        ipv4_address: 163.50.0.15
   alerts-service:
     image: registry.digitalocean.com/vehicle-plus/alerts:latest
     restart: always
@@ -39,6 +39,8 @@ services:
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.25
+      Database-Network:
+        ipv4_address: 163.50.0.25
   mqtt-broker:
     image: emqx/emqx:5.0.26
     restart: always
@@ -49,7 +51,7 @@ services:
       - 8883:8883
       - 127.0.0.1:18083:18083
     networks:
-      - Vehicle-Plus-Network:
-          ipv4_address: 163.20.0.20
-      - Database-Network:
-          ipv4_address: 163.50.0.20
+      Vehicle-Plus-Network:
+        ipv4_address: 163.20.0.20
+      Database-Network:
+        ipv4_address: 163.50.0.20
