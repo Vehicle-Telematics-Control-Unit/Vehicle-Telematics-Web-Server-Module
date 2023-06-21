@@ -36,7 +36,7 @@ services:
   gps-service:
     image: registry.digitalocean.com/vehicle-plus/gps-server:latest
     restart: always
-    command: bash -c "dotnet Alert-Server.dll"
+    command: bash -c "dotnet GPS-Server.dll"
     volumes:
       - ./appsettings.json:/app/appsettings.json
     ports:
