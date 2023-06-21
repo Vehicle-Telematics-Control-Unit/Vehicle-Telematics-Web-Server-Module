@@ -33,3 +33,14 @@ services:
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.25
+  gps-service:
+    image: registry.digitalocean.com/vehicle-plus/gps-server:latest
+    restart: always
+    command: bash -c "dotnet Alert-Server.dll"
+    volumes:
+      - ./appsettings.json:/app/appsettings.json
+    ports:
+      - 127.0.0.1:5480:80
+    networks:
+      Vehicle-Plus-Network:
+        ipv4_address: 163.20.0.30
