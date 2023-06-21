@@ -5,8 +5,6 @@ networks:
     ipam:
       config:
         - subnet: 163.20.0.0/16
-  databasesys_Database-Network:
-    external: true
 
 services:
   auth-server-service:
@@ -23,8 +21,6 @@ services:
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.15
-      databasesys_Database-Network:
-        ipv4_address: 163.50.0.15
   alerts-service:
     image: registry.digitalocean.com/vehicle-plus/alerts:latest
     restart: always
@@ -34,24 +30,6 @@ services:
       - ./appsettings.json:/app/appsettings.json
     ports:
       - 127.0.0.1:5460:80
-    depends_on:
-      - mqtt-broker
     networks:
       Vehicle-Plus-Network:
         ipv4_address: 163.20.0.25
-      databasesys_Database-Network:
-        ipv4_address: 163.50.0.25
-  mqtt-broker:
-    image: emqx/emqx:5.0.26
-    restart: always
-    ports:
-      - 1883:1883 
-      - 8083:8083
-      - 8084:8084
-      - 8883:8883
-      - 127.0.0.1:18083:18083
-    networks:
-      Vehicle-Plus-Network:
-        ipv4_address: 163.20.0.20
-      databasesys_Database-Network:
-        ipv4_address: 163.50.0.20
